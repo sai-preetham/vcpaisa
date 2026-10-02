@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070708;
+  --foreground: #f5f5f4;
+  --muted: #a1a1aa;
+  --card: #111114;
+  --card-border: #232328;
+  --gold: #f5c542;
+  --gold-soft: #f5c54233;
+  --green: #22c55e;
+  --green-soft: #22c55e22;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--gold) 45%, transparent);
+  color: #0a0a0b;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #f5c542 0%, #fafafa 42%, #22c55e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--gold) 35%, transparent),
+    0 0 40px color-mix(in oklab, var(--gold) 12%, transparent);
+}
+
+.grid-fade {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, #f5c54222, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, #22c55e18, transparent 50%),
+    linear-gradient(to right, #ffffff08 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+  background-position: center, center, center, center;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
